@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation)."
+description: "You MUST use this before large tasks (per the 작업 크기 rules in CLAUDE.md) - new projects, unclear behavior, data or storage format changes, folder or multi-module changes, new external libraries - or when your human partner asks to brainstorm. Small and medium tasks skip it."
 ---
 
 # Brainstorming
@@ -222,8 +222,10 @@ or two each and goes straight to your human partner, without the
 builder check.
 
 **Where it goes:** in a software repo,
-`docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`, committed.
-Otherwise, ask. Your human partner's preferences override both.
+`.superpowers/specs/YYYY-MM-DD-<topic>-design.md`. Do not commit it:
+`.superpowers/` is git-ignored scratch, and the doc is deleted when the
+work finishes (superpowers:finishing-a-development-branch). Otherwise,
+ask. Your human partner's preferences override both.
 
 **Builder check** (for a project): dispatch a fresh subagent with
 `builder-check-prompt.md` in this directory. When you tell your human

@@ -25,6 +25,7 @@ Write the test first. Watch it fail. Write minimal code to pass.
 - Throwaway prototypes
 - Generated code
 - Configuration files
+- Screen layout or visual bugs that can't reasonably be tested; your human partner checks those by eye
 
 Thinking "skip TDD just this once"? Stop. That's rationalization.
 
@@ -34,15 +35,17 @@ Thinking "skip TDD just this once"? Stop. That's rationalization.
 NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST
 ```
 
-Write code before the test? Delete it. Start over.
+Write code before the test?
 
-**No exceptions:**
+**Bug fixes and core calculation logic** (money, scores, dates, rules the product depends on): delete it. Start over. No exceptions:
 - Don't keep it as "reference"
 - Don't "adapt" it while writing tests
 - Don't look at it
 - Delete means delete
 
 Implement fresh from tests. Period.
+
+**Everything else:** keep the code, write the test now, and prove the test can fail: stash or break the code under test, watch the test fail for the expected reason, then restore it. A test you never saw fail proves nothing.
 
 ## Red-Green-Refactor
 
@@ -251,7 +254,7 @@ When writing or changing any test, read [writing-good-tests.md](writing-good-tes
 - "TDD is dogmatic, I'm being pragmatic"
 - "This is different because..."
 
-**All of these mean: Delete code. Start over with TDD.**
+**All of these mean: for bug fixes and core calculation logic, delete code and start over with TDD. Elsewhere, stop and prove the test can fail (see The Iron Law).**
 
 ## Example: Bug Fix
 

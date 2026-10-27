@@ -1,6 +1,6 @@
 ---
 name: executing-plans
-description: Use when executing an implementation plan in the current session as the implementer yourself — your human partner chose inline execution, or no subagent tool is available
+description: Use when executing an implementation plan from writing-plans — the default executor; you implement in the current session and one fresh reviewer checks the whole branch at the end
 ---
 
 # Executing Plans
@@ -44,8 +44,8 @@ those, stop and ask.
 
 ## When to Use
 
-- You have a plan from superpowers:writing-plans and your human partner
-  chose inline execution at the handoff.
+- You have a plan from superpowers:writing-plans. This is the default
+  executor; your human partner did not ask for subagent-driven execution.
 - Your harness has no subagent tool (see the per-platform references in
   `../using-superpowers/references/`). Never fabricate a dispatch; run
   the plan here.
@@ -107,10 +107,10 @@ digraph process {
 
 ## Setup
 
-Ensure the work happens in an isolated workspace: use
-superpowers:using-git-worktrees to create one or verify the existing one.
-Never start implementation on a main/master branch without your human
-partner's explicit consent.
+Work in the current checkout. Git worktrees are not used in this setup:
+projects live in OneDrive, where worktree copies only add sync load. Never
+start implementation on a main/master branch without your human partner's
+explicit consent; a feature branch in the same checkout is enough.
 
 Conversation memory does not survive compaction. An inline executor that
 loses its place re-implements tasks whose commits already exist — the same
@@ -243,7 +243,9 @@ superpowers:requesting-code-review's
 [code-reviewer.md](../requesting-code-review/code-reviewer.md), with the
 package path, the plan and spec paths, the plan's Review Focus section
 verbatim if it has one (the input classes and failure modes the plan's
-tests do not exercise — the reviewer checks each deliberately), and a
+tests do not exercise — the reviewer checks each deliberately), the list
+of files the branch added (`git diff --name-only --diff-filter=A
+MERGE_BASE HEAD`) so it can judge whether each was needed, and a
 pointer to the ledger's `Ruling:` lines so it can weigh the calls you
 made. Specify the model
 explicitly; an omitted model inherits the session's, which may not be the

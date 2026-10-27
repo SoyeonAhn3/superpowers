@@ -1,6 +1,6 @@
 ---
 name: using-superpowers
-description: Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions
+description: Use when starting any conversation - establishes task sizing and how to find and use skills, requiring skill invocation before any response on medium and large tasks
 ---
 
 <SUBAGENT-STOP>
@@ -8,18 +8,28 @@ If you were dispatched as a subagent to execute a specific task, ignore this ski
 </SUBAGENT-STOP>
 
 <EXTREMELY-IMPORTANT>
-If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
+Size the task first (see Task Size). Small tasks skip skill workflows. For medium and large tasks: if you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
 
 IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
 
 This is not negotiable. You cannot rationalize your way out of this.
 </EXTREMELY-IMPORTANT>
 
+## Task Size
+
+Before acting on a change request, size it with the 작업 크기 rules in your human partner's CLAUDE.md and state the size and reason in one line. Answering a question is not a change request.
+
+- **Small:** just do it. No brainstorming, planning, or execution skill. A bug still gets a failing reproduction test first.
+- **Medium:** superpowers:writing-plans, get approval, then superpowers:executing-plans.
+- **Large:** superpowers:brainstorming first, then the medium flow.
+
+When unsure, go one size up. If the task grows mid-way, stop, say so, and switch size.
+
 ## The Rule
 
-**Invoke relevant or requested skills BEFORE any response or action** — including clarifying questions, exploring the codebase, or checking files. If it turns out wrong for the situation, you don't have to use it.
+**For medium and large tasks, invoke relevant or requested skills BEFORE any response or action** — including clarifying questions, exploring the codebase, or checking files. If it turns out wrong for the situation, you don't have to use it.
 
-**Before entering plan mode:** if you haven't already brainstormed, invoke the brainstorming skill first.
+**Before entering plan mode on a large task:** if you haven't already brainstormed, invoke the brainstorming skill first.
 
 Then announce "Using [skill] to [purpose]" and follow the skill exactly. If it has a checklist, create a todo per item.
 
@@ -27,10 +37,12 @@ Then announce "Using [skill] to [purpose]" and follow the skill exactly. If it h
 
 When multiple skills apply, process skills come first — they set the approach, then implementation skills (frontend-design, etc.) carry it out. Brainstorming and systematic-debugging are Superpowers' most common process skills, but the rule holds for any of them.
 
-- "Let's build X" → superpowers:brainstorming first, then implementation skills.
-- "Fix this bug" → superpowers:systematic-debugging first, then domain skills.
+- "Let's build X" (large) → superpowers:brainstorming first, then implementation skills.
+- "Fix this bug" (cause unknown, medium) → superpowers:systematic-debugging first, then domain skills.
 
 ## Red Flags
+
+These apply to medium and large tasks. Skipping skill workflows for a task that meets every small-task condition is correct, not rationalizing. Calling a task small when it needs a new file, touches 3+ files, or touches a risk area is rationalizing.
 
 These thoughts mean STOP—you're rationalizing:
 

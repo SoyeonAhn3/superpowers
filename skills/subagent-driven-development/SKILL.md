@@ -100,10 +100,10 @@ digraph process {
 
 ## Setup
 
-Ensure the work happens in an isolated workspace: use
-superpowers:using-git-worktrees to create one or verify the existing one.
-Never start implementation on a main/master branch without your human
-partner's explicit consent.
+Work in the current checkout. Git worktrees are not used in this setup:
+projects live in OneDrive, where worktree copies only add sync load. Never
+start implementation on a main/master branch without your human partner's
+explicit consent; a feature branch in the same checkout is enough.
 
 Conversation memory does not survive compaction. In real sessions,
 controllers that lost their place have re-dispatched entire completed task

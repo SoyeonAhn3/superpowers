@@ -11,9 +11,8 @@ Write implementation plans for an engineer who has not seen this codebase or thi
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Context:** If working in an isolated worktree, it should have been created via the `superpowers:using-git-worktrees` skill at execution time.
-
-**Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
+**Save plans to:** `.superpowers/plans/YYYY-MM-DD-<feature-name>.md`
+- Do not commit it: `.superpowers/` is git-ignored scratch, and the plan is deleted when the work finishes (superpowers:finishing-a-development-branch)
 - (User preferences for plan location override this default)
 
 ## Scope Check
@@ -56,7 +55,7 @@ independently testable deliverable.
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans (default) or, for a very long plan, superpowers:subagent-driven-development to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -73,6 +72,20 @@ argues from the spec, so the spec travels with it; executors read both]
 naming and copy rules, platform requirements — one line each, with exact
 values copied verbatim from the spec. Every task's requirements implicitly
 include this section.]
+
+## New Files
+
+[Every file the plan creates, one line each: its path and why no existing
+file can hold it. Read the file map (the project's CLAUDE.md files) first
+and put each file where the map says that kind of code goes. Test files
+need no reason. "None" is a valid answer.]
+
+## Reuse
+
+[Existing code the plan reuses instead of writing again, one line each:
+path and function or class name. Find it through the file map and a
+search for the names you were about to create. If nothing fits, write
+"None found" and the names you searched for.]
 
 ## Review Focus
 
@@ -172,30 +185,25 @@ After writing the complete plan, look at the spec with fresh eyes and check the 
 
 **4. Review Focus:** For each input class or failure mode the spec implies, is there a task whose tests exercise it? The five uncovered ones most likely to bite a person go in the Review Focus section, and each line there gets its test added to the owning task. An empty section means you checked and found none, not that you skipped the check.
 
-**5. Proportion:** Compare the plan's length to the spec's. A plan several times longer than the spec it implements is a transcript of the program, not a plan. If code blocks are most of the document, replace bodies with signatures, test names and assertions, and check that each step is still unambiguous.
+**5. New files and reuse:** Every `Create:` path in the tasks appears in New Files with a reason, and Reuse lists what you searched for. A new helper that duplicates something in Reuse is a bug.
+
+**6. Proportion:** Compare the plan's length to the spec's. A plan several times longer than the spec it implements is a transcript of the program, not a plan. If code blocks are most of the document, replace bodies with signatures, test names and assertions, and check that each step is still unambiguous.
 
 If you find issues, fix them inline. No need to re-review — just fix and move on. If you find a spec requirement with no task, add the task.
 
 ## Execution Handoff
 
 After saving and self-reviewing the plan, link it for your human partner
-to read. If they have already explicitly supplied an execution method, ask
-them to review the plan and confirm it captures what they want; wait for that
-review before implementation, then use the preserved method. Otherwise, ask
-them to review the plan and choose an execution method before implementation.
+to read. Ask them to review the plan and confirm it captures what they want;
+wait for that review before implementation. The default execution method is
+Native. Use Subagent-driven only when your human partner asks for it, or
+when the plan is long enough that later tasks would run on a compacted
+context; then say so and why.
 
-**When no execution method has already been supplied:**
+**"Plan complete and saved to `.superpowers/plans/<filename>.md`. Please review the plan. Does it capture what you want?"**
 
-**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Please review the plan. Which execution approach would you prefer?**
-
-- **Subagent-driven** - A fresh subagent implements each task and a fresh reviewer checks it before the next one starts, then a whole-branch review at the end. Most thorough; costs a fresh context per task and per review.
-- **Native** - I implement every task myself in this session, the way this harness runs work, then one fresh reviewer on the most capable model checks the whole branch. Cheapest and fastest; no independent review until the end. Runs well with a mid-tier session model, since the plan carries the design.
-
-**For this plan I recommend <one of the two>, because <one sentence from the plan: how much the tasks depend on each other's interfaces, how many there are, what a shipped mistake would cost>. Does the plan capture what you want, and which approach should we use?"**
-
-**When an execution method has already been supplied:**
-
-**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Please review the plan. Does it capture what you want?"**
+- **Native** (default) - I implement every task myself in this session, then one fresh reviewer on the most capable model checks the whole branch.
+- **Subagent-driven** - A fresh subagent implements each task and a fresh reviewer checks it before the next one starts, then a whole-branch review at the end. Costs a fresh context per task and per review.
 
 **If Subagent-driven chosen:**
 - **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development

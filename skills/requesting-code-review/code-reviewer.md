@@ -78,6 +78,28 @@ Subagent (general-purpose):
     - Sound design decisions?
     - Reasonable scalability and performance?
     - Security concerns?
+
+    **Duplication and new files:**
+    - Does new code re-implement a function or class the project already
+      has? Search for the names it introduces before answering.
+    - Is each added file needed, and is it where the project's file map
+      (CLAUDE.md files) says that kind of code goes? Was the map updated
+      for files added, removed, or repurposed?
+    - Any stray files: summaries, examples, backups, `_v2` copies,
+      one-off scripts?
+
+    **Five criteria (from the human partner's CLAUDE.md):**
+    - Wrappers, layers, or conversions with no concrete role?
+    - Existing utilities and storage paths bypassed without a reason?
+    - Fields or metadata with no current requirement or real user?
+    - Defensive branches for inputs or failures that cannot happen, or
+      errors swallowed silently?
+    - Structure, naming, error handling, or ordering that departs from
+      similar existing code without a reason?
+
+    **Test weakening:**
+    - Deleted or skipped tests, loosened assertions, or lint/type-check
+      suppressions added to make checks pass?
     - Integrates cleanly with surrounding code?
 
     **Testing:**
