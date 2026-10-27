@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "You MUST use this before large tasks (per the 작업 크기 rules in CLAUDE.md) - new projects, unclear behavior, data or storage format changes, folder or multi-module changes, new external libraries - or when your human partner asks to brainstorm. Small and medium tasks skip it."
+description: "You MUST use this before large tasks (per the 작업 크기 rules in CLAUDE.md) - new projects, unclear behavior, more than 5 implementation steps, data or storage format changes, folder structure changes, new external libraries - or when your human partner asks to brainstorm. Small and medium tasks skip it."
 ---
 
 # Brainstorming
