@@ -9,7 +9,7 @@ description: Use when implementation is complete, all tests pass, and you need t
 
 **Core principle:** Verify tests → Clean up plan files → Present options → Execute choice.
 
-In this setup Git worktrees are not used, and pushing is your human partner's job: you integrate locally and never push or open a pull request.
+In this setup Git worktrees are not used. You integrate locally. Push or open a pull request only when your human partner asks for it; each push goes through an approval prompt. Never force-push.
 
 **Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
 
@@ -55,7 +55,7 @@ Implementation complete. What would you like to do?
 1. Merge back to <base-branch> locally
 2. Keep the branch as-is (I'll handle it later)
 
-Pushing is up to you.
+To push, ask me.
 
 Which option?
 ```
@@ -109,7 +109,7 @@ git branch -D <feature-branch>
 |--------|---------|
 | "Tests passed earlier this session" | Run the suite on the tree you are about to integrate. A green run only proves the tree it ran on. |
 | "They obviously want it merged" | Integration is your human partner's decision. Present the menu and wait. |
-| "I'll push so it's backed up" | Pushing is your human partner's job. Report and stop. |
+| "I'll push so it's backed up" | Push only when your human partner asks. Report and stop. |
 | "The plan file might be useful later" | Code, tests, commit messages, and the file map are the record. A stale plan misleads the next session. |
 | "They seem done with this feature — I'll offer to discard it" | The menu is complete as written. Discard happens only when your human partner asks for it in so many words. |
 | "'Yeah, get rid of it' counts as confirmation" | Only the typed word `discard` authorizes deletion. |
