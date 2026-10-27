@@ -1,6 +1,6 @@
 ---
 name: writing-plans
-description: Use when you have a spec or requirements for a multi-step task, before touching code
+description: Use for large tasks (per the 작업 크기 rules in CLAUDE.md), after brainstorming, before touching code. Medium tasks use a short plan in chat instead.
 ---
 
 # Writing Plans

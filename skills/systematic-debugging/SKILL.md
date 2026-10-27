@@ -167,6 +167,8 @@ You MUST complete each phase before proceeding to the next.
 
 ### Phase 4: Implementation
 
+**Size the fix first.** Revert any hypothesis-test changes from Phase 3, report the root cause, and size the fix with the 작업 크기 rules in CLAUDE.md. Small: continue below. Medium: show the short plan and get approval before continuing. Large: stop and go to superpowers:brainstorming.
+
 **Fix the root cause, not the symptom:**
 
 1. **Create Failing Test Case**

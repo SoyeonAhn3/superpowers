@@ -20,8 +20,9 @@ This is not negotiable. You cannot rationalize your way out of this.
 Before acting on a change request, size it with the 작업 크기 rules in your human partner's CLAUDE.md and state the size and reason in one line. Answering a question is not a change request.
 
 - **Small:** just do it. No brainstorming, planning, or execution skill. A bug still gets a failing reproduction test first.
-- **Medium:** superpowers:writing-plans, get approval, then superpowers:executing-plans.
-- **Large:** superpowers:brainstorming first, then the medium flow.
+- **Medium:** show a short plan in chat — goal, files to change, new files and why, existing code to reuse, tests that prove it — and get approval. No plan file, no writing-plans or executing-plans. Implement under superpowers:test-driven-development, commit, then one fresh review of the whole change with superpowers:requesting-code-review.
+- **Large:** superpowers:brainstorming, then superpowers:writing-plans, then superpowers:executing-plans.
+- **Bug of unknown cause:** find the cause first with superpowers:systematic-debugging, without changing code. Then size the fix as small, medium, or large.
 
 When unsure, go one size up. If the task grows mid-way, stop, say so, and switch size.
 
@@ -38,7 +39,7 @@ Then announce "Using [skill] to [purpose]" and follow the skill exactly. If it h
 When multiple skills apply, process skills come first — they set the approach, then implementation skills (frontend-design, etc.) carry it out. Brainstorming and systematic-debugging are Superpowers' most common process skills, but the rule holds for any of them.
 
 - "Let's build X" (large) → superpowers:brainstorming first, then implementation skills.
-- "Fix this bug" (cause unknown, medium) → superpowers:systematic-debugging first, then domain skills.
+- "Fix this bug" (cause unknown) → superpowers:systematic-debugging first, then size the fix.
 
 ## Red Flags
 

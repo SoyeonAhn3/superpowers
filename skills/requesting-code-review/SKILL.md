@@ -12,6 +12,7 @@ Dispatch a code reviewer subagent to catch issues before they cascade. The revie
 ## When to Request Review
 
 **Mandatory:**
+- After a medium task (per the 작업 크기 rules in CLAUDE.md): once, on the whole change. BASE is the commit before the task started; pass the short plan as `{PLAN_OR_REQUIREMENTS}` and the files the task added (`git diff --name-only --diff-filter=A BASE HEAD`). Fix Critical and Important findings, each with a test that failed first; note Minor ones in your final message.
 - After each task in subagent-driven development
 - After completing major feature
 - Before merge to main
