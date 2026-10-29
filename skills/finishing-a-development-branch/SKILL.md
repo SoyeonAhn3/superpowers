@@ -33,6 +33,7 @@ The design doc (`.superpowers/specs/`) and plan (`.superpowers/plans/`) for this
 
 - Why the work was built this way goes in the final commit message body.
 - A placement rule worth keeping (e.g. "all date helpers live in `utils/date.py`") goes into the file map, under "여기에 두는 것" in the right CLAUDE.md.
+- If README.md has a phase progress list and this work finishes a phase: mark that phase done with today's date, and write the phase record `docs/phases/phase-<N>.md`. The record is dated, written once and never updated: what was built, key decisions and why (from the design doc, the rulings and the commit messages), problems met and how they were solved, and the result. Leave out class and function details; the code holds those. If the file map has no `docs/phases/` line, add one saying these are dated records, not a description of the current code.
 
 Then delete this work's design doc and plan. Leave other plans' files alone; they belong to unfinished work.
 
