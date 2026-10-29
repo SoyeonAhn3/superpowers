@@ -17,6 +17,8 @@ Dispatch a code reviewer subagent to catch issues before they cascade. The revie
 - After completing major feature
 - Before merge to main
 
+**Skip:** a change that touches only documentation (`.md` files), with no code, tests, or config. This holds for every case above.
+
 **Optional but valuable:**
 - When stuck (fresh perspective)
 - Before refactoring (baseline check)

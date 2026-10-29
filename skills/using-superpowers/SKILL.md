@@ -20,7 +20,7 @@ This is not negotiable. You cannot rationalize your way out of this.
 Before acting on a change request, size it with the 작업 크기 rules in your human partner's CLAUDE.md and state the size and reason in one line. Answering a question is not a change request.
 
 - **Small:** just do it. No brainstorming, planning, or execution skill. A bug still gets a failing reproduction test first.
-- **Medium:** show a short plan in chat — goal, files to change, new files and why, existing code to reuse, tests that prove it — and get approval. No plan file, no writing-plans or executing-plans. Implement under superpowers:test-driven-development, commit, then one fresh review of the whole change with superpowers:requesting-code-review.
+- **Medium:** show a short plan in chat — goal, files to change, new files and why, existing code to reuse, tests that prove it — and get approval. No plan file, no writing-plans or executing-plans. Implement under superpowers:test-driven-development, commit, then one fresh review of the whole change with superpowers:requesting-code-review. Skip the review when the change touches only documentation (`.md` files), with no code, tests, or config.
 - **Large:** superpowers:brainstorming, then superpowers:writing-plans, then superpowers:executing-plans.
 - **Bug of unknown cause:** find the cause first with superpowers:systematic-debugging, without changing code. Then size the fix as small, medium, or large.
 
