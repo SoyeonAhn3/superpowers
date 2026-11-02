@@ -8,8 +8,8 @@ description: Use when a project's plan has just been split into phases and confi
 The project plan is the document that lists the phases (the 기획서), not an implementation plan in `.superpowers/plans/`, which carries out one phase. A project whose project plan is split into phases, even into one, keeps a README.md with three sections, written in the project plan's language, status words included:
 
 1. **Intro** under the project name: two or three sentences from the project plan on what the project does and for whom.
-2. **How to run:** install steps, the run command, one example. Leave this section out until runnable code exists.
-3. **Phase status:** one line per phase in the project plan, `Phase <N>: <name> - not started | in progress | done (<YYYY-MM-DD>) | stopped (<YYYY-MM-DD>)`. Phases only; no task lines.
+2. **How to run:** install steps, the run command, one example. If the program takes input, add what it needs, from the project plan and the code: the input file format (required columns or fields), keys, environment variables. Leave this section out until runnable code exists.
+3. **Phase status:** one line per phase in the project plan, `Phase <N>: <name> - not started | in progress | done (<YYYY-MM-DD>) | stopped (<YYYY-MM-DD>) - <deliverable>`. The deliverable is one line from the project plan's phase content: what the phase produces and what it does. Phases only; no task lines.
 
 Put nothing else in a README you create. In a README that already exists, add or fix these three sections and leave the rest as your human partner wrote it. If the file map has no README.md line, add one.
 
@@ -22,7 +22,7 @@ Put nothing else in a README you create. In a README that already exists, add or
 **Task ends, before its last commit:** change the README only if one of these happened, and put the change in that commit:
 
 - The task finished the phase: mark it done with today's date.
-- The task changed how to run: the entry point, command options, or what has to be installed. A task that first makes the code runnable counts.
+- The task changed how to run: the entry point, command options, the input it needs, or what has to be installed. A task that first makes the code runnable counts.
 
 Neither happened: leave README.md untouched.
 
