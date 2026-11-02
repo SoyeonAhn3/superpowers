@@ -5,17 +5,17 @@ description: Use when a project's plan has just been split into phases and confi
 
 # Writing the README
 
-A project split into phases keeps a README.md with three sections, written in the plan document's language:
+The project plan is the document that lists the phases (the 기획서), not an implementation plan in `.superpowers/plans/`, which carries out one phase. A project whose project plan is split into phases, even into one, keeps a README.md with three sections, written in the project plan's language, status words included:
 
-1. **Intro** under the project name: two or three sentences from the plan on what the project does and for whom.
-2. **How to run:** install steps, the run command, one example. Until runnable code exists, one line saying it will be added after development.
-3. **Phase status:** one line per phase in the plan, `Phase <N>: <name> - not started | in progress | done (<YYYY-MM-DD>)`. Phases only; no task lines.
+1. **Intro** under the project name: two or three sentences from the project plan on what the project does and for whom.
+2. **How to run:** install steps, the run command, one example. Leave this section out until runnable code exists.
+3. **Phase status:** one line per phase in the project plan, `Phase <N>: <name> - not started | in progress | done (<YYYY-MM-DD>) | stopped (<YYYY-MM-DD>)`. Phases only; no task lines.
 
 Put nothing else in a README you create. In a README that already exists, add or fix these three sections and leave the rest as your human partner wrote it. If the file map has no README.md line, add one.
 
 ## When
 
-**Phases confirmed, or no README.md in a phased project:** create it with the intro and phase status. Fill in how to run only if runnable code exists already.
+**Phases confirmed, or no README.md in a phased project:** create it with the intro and phase status. Add how to run only if runnable code exists already. Leave it uncommitted; superpowers:executing-plans commits it at setup.
 
 **Phase starts:** mark that phase in progress.
 
@@ -26,6 +26,6 @@ Put nothing else in a README you create. In a README that already exists, add or
 
 Neither happened: leave README.md untouched.
 
-**Your human partner asks to update the README:** compare every section with the current state. Intro against the plan. How to run against the entry point, the option parsing and the dependency files. Phase status against the plan and `git log`. Fix what differs and report what you changed.
+**Your human partner asks to update the README:** compare every section with the current state. Intro against the project plan. How to run against the entry point, the option parsing and the dependency files. Phase status against the project plan and `git log`. Fix what differs and report what you changed.
 
 Check commands by reading the code; do not run them to verify the README.
