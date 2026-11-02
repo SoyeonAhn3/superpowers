@@ -146,11 +146,6 @@ authority the plan argues from, and conflicts inside the plan resolve
 against it. A plan with no reachable spec gets a ledger note saying so —
 rulings made without one are provisional.
 
-If this plan carries out one phase of a project plan split into phases,
-use superpowers:writing-readme now: it creates README.md if there is none
-and marks this phase in progress. Commit README.md on its own before
-Task 1.
-
 **REQUIRED SUB-SKILL:** load superpowers:test-driven-development now,
 before Task 1. It governs every step of every task below; a plan whose
 steps already say "write the failing test first" does not exempt you
@@ -207,9 +202,7 @@ read its output, and compare. Three outcomes:
   the same interface read it from the ledger.
 
 Commit as the plan's commit steps say. A task that spans several commits
-is fine; BASE is what the review range is cut from, never `HEAD~1`. In a
-phased project, follow superpowers:writing-readme's task-end step before
-the task's last commit, so a README change rides in that commit.
+is fine; BASE is what the review range is cut from, never `HEAD~1`.
 
 ### 3. The completion contract
 
